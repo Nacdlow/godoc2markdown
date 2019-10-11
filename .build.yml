@@ -1,0 +1,19 @@
+image: archlinux
+packages:
+  - go
+sources:
+  - https://git.sr.ht/~humaid/godoc2markdown
+tasks:
+  - setup: |
+      cd godoc2markdown
+      go get ./...
+  - format: |
+      cd godoc2markdown
+      go fmt $(go list ./... | grep -v /vendor/)
+      go vet $(go list ./... | grep -v /vendor/)
+  - test: |
+      cd godoc2markdown
+      go test -cover -race $(go list ./... | grep -v /vendor/)
+  - build: |
+      cd godoc2markdown
+      go build
