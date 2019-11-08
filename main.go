@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	titleExp = regexp.MustCompile("^[A-Z]+")
+	titleExp = regexp.MustCompile("^[A-Z]+$")
 	funcExp  = regexp.MustCompile("^func ")
 	descExp  = regexp.MustCompile("^    ")
 )
